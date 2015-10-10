@@ -1,0 +1,88 @@
+**Prep_data.out: 对源数据文件初步整理而成的统一格式的数据。
+每个数据由三行组成，第一行（<id>行）为职位的标识id；第二行（<pos>行）为职位的名字；第三行为职位的具体职责描述。除了格式以外，所有文字描述和表标点保持和源文件相同
+
+**Prep_pos_raw.out:仅包含原始信息（<pos>行）的职位名．
+
+**Prep_pos_old: 职位名称的单独处理和提取。
+单独提取的职位名称，并经过预处理：对于每一个职位名，遇到停用词或标点符号则换行存取为新的职位名。
+
+**Prep_pos.out:职位名称的单独处理和提取。
+2015.8.４修改，对于每一个职位名，遇到停用词或标点符号抛弃该职位名（英语职位名中出现空格除外），且将繁体转为简体．
+
+**Prep_pos_seg.out:对Prep_pos.out进行分词
+
+**Prep_idAndpos.out:仅包含工作职位id和具体职位名的条目（去除空职位等非法职位）
+
+**Pos_frequency: 按出现频次降序排列的职位名称。
+
+**Position_only.out: 去掉停用词和标点的职位名称。
+
+**Position_trace.out: 未经处理的职位名称及其对应的来源文件和出现的行数
+
+**pos_seg.out:对职位名进行分词
+
+**pos_2word.out: 从Prep_pos.out导出的保留最后一段分词的两字职位名
+
+**Pos_2word_freq.direct: 根据Prep_pos.out按频次降序排列的两字职位
+
+**Pos_2word_freq.indirect:根据pos_2word.out按频次降序排列的两字职位
+
+**rough_STD.out:职位大类标准库
+从２字词开始，采用文字完全匹配，凡匹配成功则加入已存在的职位类别中
+
+**II_Class_STD.out:职位两级分类标准库
+在STD.out的基础上，对于每一个职业大类的元素，顺序采用最长公共子序列（LCS）进行匹配，超过一定数量（可调）则分为当前大类下的二级小类，采用字典存储
+
+**II_Class_STD.dict:序列化的两级分类标准库
+采用cPickle模块将两级分类标准库字典序列化,保存在本地
+
+**STD_upgrade.out
+**STD_upgrade.dict
+在II_Class_STD的基础上,将小类存为新的大类,所属的大类中只保留小类名,删去小类下的元素
+
+**STD.out:职位标准库
+2015.8.5更新:职位名大类下包含归属于该类别的相似职位名
+
+**STD.lib:仅含有大类职位名的职位标准库(已经将二级小类另存为大类)
+
+**pos_model
+**pos_model.syn1.npy
+**pos_model.syn0.npy
+采用Gensim包生成的职位相似度模型，用于后期分类
+
+pos_only_clu系列：对职位名的K-Means聚类
+
+all.info:将工作职位名和job.csv里的职位信息根据职位id连接起来的文件
+
+Ind_xxx.info:从all.info文件中筛选出的xxx行业的所有条目
+
+Pos_Rank.csv:　对互联网行业的职位评级
+
+IDF.pk: 所有分次后词语的在Pos_frequency里的IDF,储存为pickle文件		
+
+IDF.out:所有分次后词语的在Pos_frequency里的IDF, 便于查看每个词的IDF权重
+
+STDvectors.pk/wmdvectors.pk: 储存WMD算法中,每个corpus中的职位的权重向量和w2v向量等,用于后期计算
+
+lagou.csv: 存储拉勾网的三级结构标准化职位名树
+
+position.csv: 18743个详细的职位名,及其对应的职能分类和频率
+
+职业方向整理.xlsx: 完整的职业方向三级树结构
+
+Pos_direction: 职业方向整理.xlsx文件的最后一级, 534个职位方向类
+
+rawPos: position.csv的第一列,未经过处理的18743个职位名
+
+
+
+
+
+
+
+
+
+
+
+
+
