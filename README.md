@@ -4,4 +4,5 @@ Related work at iPIN.inc concerning Machine Learning, Data Mining and NLP
 
 Including:
 (1) Intelligent Ranking model using Semantic Similarity Computation of CV-JD 
+
 (2) Large_scale JD Classification
