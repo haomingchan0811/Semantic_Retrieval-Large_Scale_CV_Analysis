@@ -1,6 +1,6 @@
-Related work at iPIN.inc concerning Machine Learning, Data Mining and NLP
+Related work at [iPIN.inc](http://ipin.com/) concerning Machine Learning, Data Mining and NLP
 
-# Large scale CV analysis at iPIN.inc
+# Large scale CV analysis at [iPIN.inc](http://ipin.com/)
 
 Including:
 
